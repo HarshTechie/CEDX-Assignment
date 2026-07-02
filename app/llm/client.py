@@ -24,7 +24,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Optional
 
-from ..util import canon, hexstem, sha
+from ..util import hexstem, sha
 from .router import price_of
 
 

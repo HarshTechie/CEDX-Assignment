@@ -13,7 +13,7 @@ Prompt rules that must GENERALISE to the held-out seed:
 from __future__ import annotations
 
 from ..contracts import NormalizedRecord, WorkerResult
-from ..llm.client import LLMClient
+from ..llm.client import LLMClient, LLMResult
 
 PROMPT_VERSION = "worker.v1"
 
@@ -51,7 +51,7 @@ class Worker:
     def __init__(self, client: LLMClient):
         self.client = client
 
-    def run(self, rec: NormalizedRecord, model: str, attempt: int = 1) -> tuple[WorkerResult, "LLMResultLike"]:
+    def run(self, rec: NormalizedRecord, model: str, attempt: int = 1) -> tuple[WorkerResult, LLMResult]:
         messages = build_messages(rec)
         res = self.client.call(
             agent=self.name,

@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 
 from .agents.verifier import Verifier
-from .audit_log import AuditLog, RunClock
+from .audit_log import AuditLog
 from .config import Config
 from .contracts import NormalizedRecord, WorkerResult
 from .datetimes import base_clock
