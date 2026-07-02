@@ -1,0 +1,8 @@
+# verify_audit.py needs jsonschema. pypdf parses the inbox PDF records.
+# pydantic gives us the typed agent contracts (the "typed handoff" the fleet requires).
+# httpx is used only on the REAL-LLM path (REPLAY_LLM=false); the default offline
+# replay path has no network dependency.
+jsonschema>=4.0
+pypdf>=4.0
+pydantic>=2.5
+httpx>=0.27

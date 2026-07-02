@@ -1,0 +1,22 @@
+{
+  "description": "Declarative source->canonical field map. Keys are canonical field names; each value lists the accepted source aliases (case-insensitive). When a record supplies a non-primary alias (e.g. 'value' for 'amount'), normalization maps it to canonical AND logs SCHEMA_DRIFT. This file is data, not code: a new field rename in the held-out seed is handled by adding an alias, never by touching the pipeline.",
+  "canonical": {
+    "id":       ["id", "record", "ref", "request_id"],
+    "owner":    ["owner", "assignee", "requested_by", "requestor"],
+    "deadline": ["deadline", "due", "due_date", "duedate"],
+    "amount":   ["amount", "value", "amt", "total", "sum"],
+    "category": ["category", "type", "kind"],
+    "notes":    ["notes", "note", "comment", "comments", "remarks"],
+    "version":  ["version", "ver", "rev", "revision"]
+  },
+  "primary_alias": {
+    "id": "id",
+    "owner": "owner",
+    "deadline": "deadline",
+    "amount": "amount",
+    "category": "category",
+    "notes": "notes",
+    "version": "version"
+  },
+  "required": ["id", "owner", "deadline", "amount"]
+}

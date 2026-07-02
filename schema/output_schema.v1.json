@@ -1,0 +1,16 @@
+{
+  "schema_version": "output.v1",
+  "domain": "financial_ops.invoice_approval",
+  "description": "Branded invoice/payment-approval package produced by the Worker agent. Structured fields are copied verbatim from the normalized record (the Verifier enforces this); only `summary` is LLM-generated prose and must stay grounded in these fields.",
+  "delivered_fields": {
+    "record_id":   { "type": "string",  "source": "normalized.id",       "llm_generated": false },
+    "payer":       { "type": "string",  "source": "normalized.owner",    "llm_generated": false },
+    "amount_usd":  { "type": "number",  "source": "normalized.amount",   "llm_generated": false },
+    "currency":    { "type": "string",  "const": "USD",                  "llm_generated": false },
+    "due_date":    { "type": "string",  "source": "normalized.deadline", "llm_generated": false },
+    "category":    { "type": "string",  "source": "normalized.category", "llm_generated": false },
+    "summary":     { "type": "string",  "source": "llm",                 "llm_generated": true,
+                     "constraint": "one sentence; must not introduce any number, name, or date not present in the structured fields above" },
+    "disposition": { "type": "string",  "enum": ["READY_FOR_APPROVAL"],  "llm_generated": false }
+  }
+}

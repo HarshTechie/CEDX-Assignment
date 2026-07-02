@@ -1,0 +1,9 @@
+# Runtime outputs — MUST be written at runtime, never pre-generated (TASK.md).
+/out/
+*.pyc
+__pycache__/
+.venv/
+venv/
+.env
+.DS_Store
+.pytest_cache/

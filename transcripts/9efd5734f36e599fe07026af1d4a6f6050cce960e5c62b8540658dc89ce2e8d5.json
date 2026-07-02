@@ -1,0 +1,31 @@
+{
+  "key": "sha256:c232a6846ce186ef6c219192ee996bee7c759f0dc4069ecf383f187a04f33651",
+  "agent": "Judge",
+  "model": "gpt-4o-mini",
+  "prompt_version": "judge.v1",
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an impartial LLM judge for the CEDX Financial Ops lane. Score how well an invoice summary is GROUNDED in the source record on a 0..1 scale (1 = every number/name/date in the summary is supported by the source and nothing is invented). Return JSON: {\"score\": 0..1, \"grounded\": bool, \"issues\": [..]}."
+      },
+      {
+        "role": "user",
+        "content": "SOURCE: id=REC-001 owner=a.shah amount=4800.0 deadline=2026-07-15 category=ONBOARDING\nSUMMARY: Onboarding invoice for a.shah: USD 4800, due 2026-07-15."
+      }
+    ]
+  },
+  "response": {
+    "parsed": {
+      "score": 1.0,
+      "grounded": true,
+      "issues": []
+    }
+  },
+  "response_hash": "sha256:9efd5734f36e599fe07026af1d4a6f6050cce960e5c62b8540658dc89ce2e8d5",
+  "delivered_fields_hash": null,
+  "tokens_in": 114,
+  "tokens_out": 14,
+  "cost_usd": 2.55e-05,
+  "latency_ms": 240.0
+}
